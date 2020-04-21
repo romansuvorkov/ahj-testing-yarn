@@ -1,20 +1,25 @@
 image: Ubuntu1804 # образ для сборки
 stack: node 10 # окружение
+# ветка git
 branches:
   only:
-    - master # ветка git
-cache: node_modules # кеширование
+    - master
+# кеширование
+cache: node_modules
+# установка зависимостей
 install:
-  - yarn # команда установки зависимостей
+  - yarn install
+  -
 build: off
+# сборка
 build_script:
-  - yarn build # команда сборки
+  - yarn run build
+# скрипт тестирования
 test_script:
-  - yarn lint && yarn run test # скрипт тестирования
+  - yarn run lint && yarn run test
 deploy_script: # скрипт развёртывания
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
   - echo "https://$GITHUB_TOKEN:x-oauth-basic@github.com" > "$HOME/.git-credentials"
   - npx push-dir --dir=dist --branch=gh-pages --force --verbose
-  
