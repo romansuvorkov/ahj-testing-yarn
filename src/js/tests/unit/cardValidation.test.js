@@ -1,5 +1,4 @@
-// import cardValidation from '../../cardValidation';
-const cardValidation = require('../../cardValidation');
+import cardValidation from '../../cardValidation';
 
 test.each([
   ['AmericanExpress', '371449635398431', 'ae'],
