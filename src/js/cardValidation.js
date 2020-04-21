@@ -1,5 +1,4 @@
 export default function cardValidation(input) {
-    function cardValidation(input) {
   if (input.startsWith('37')
           || input.startsWith('34')) {
     return 'ae';
